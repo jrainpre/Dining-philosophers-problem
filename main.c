@@ -1,6 +1,7 @@
 #include "philosophers.h"
 void	*routine(void *ph);
 int		malloc_philos(t_global *global);
+int check_philo_starved(t_global *global);
 
 int	init_forks(t_global *global)
 {
@@ -35,6 +36,7 @@ void	start_eat(t_p *p)
 	p->global->forks[p->fork_left] = 1;
 	p->global->forks[p->fork_right] = 1;
 	p->has_forks = 0;
+	p->last_eat = gettimeofday;
 	printf("Philosopher %d has given the forks back.\n", p->id);
 	printf("Philosopher %d is sleeping.\n", p->id); 
 	usleep(1000000);
@@ -81,9 +83,15 @@ int	malloc_philos(t_global *global)
 		i++;
 	}
 	i = 0;
+	while (1)
+	{
+		int check_philo_starved(t_global *global);
+	}
+	
 	while (i < global->nbr_ps)
 	{
 		pthread_join(global->ps[i].thread, NULL);
+		int check_philo_starved(t_global *global);
 		i++;
 	}
 	return (1);
@@ -110,4 +118,22 @@ void	*routine(void *x)
 	return (NULL);
 }
 
-int check_philo_starved
+int check_philo_starved(t_global *global)
+{
+	int i;
+	unsigned long time;
+
+	i = 0;
+	time = gettimeofday;
+	while (i < global->nbr_ps)
+	{
+		if (time - global->ps[i].last_eat > global->tte)
+		{
+			printf("Philosopher %d has starved.\n", global->ps[i].id);
+			global->no_dead = 0;
+			return (0);
+		}
+		i++;
+	}
+	return (1);
+}
