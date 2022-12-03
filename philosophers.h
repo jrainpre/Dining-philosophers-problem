@@ -6,7 +6,7 @@
 /*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:55:16 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/12/02 16:21:05 by jrainpre         ###   ########.fr       */
+/*   Updated: 2022/12/03 17:32:05 by jrainpre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <sys/time.h>
+#include <string.h>
 
 struct s_global;
 
@@ -26,6 +27,7 @@ typedef struct s_p
 	int id;
 	int fork_right;
 	int fork_left;
+	int has_forks;
 	int eat_count;
 	unsigned long last_eat;
 	struct s_global *global; 
