@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jonathanrainprechter <jonathanrainprech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:55:16 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/12/03 17:32:05 by jrainpre         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:24:27 by jonathanrai      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ typedef struct s_global
 	char *forks;
 	struct s_p *ps;
 	int no_dead;
+	int must_eat;
 } t_global;
 
 
-
+int	ft_atoi(const char *nptr);
+int get_input(int argc, char **argv, t_global *global);
 
 
 

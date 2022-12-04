@@ -36,7 +36,7 @@ void	start_eat(t_p *p)
 	p->global->forks[p->fork_left] = 1;
 	p->global->forks[p->fork_right] = 1;
 	p->has_forks = 0;
-	p->last_eat = gettimeofday;
+	// p->last_eat = gettimeofday;
 	printf("Philosopher %d has given the forks back.\n", p->id);
 	printf("Philosopher %d is sleeping.\n", p->id); 
 	usleep(1000000);
@@ -45,18 +45,13 @@ void	start_eat(t_p *p)
 }
 int	main(int argc, char **argv)
 {
-	unsigned long	time_to_die;
-	unsigned long	time_to_eat;
 	pthread_mutex_t	lock_fork;
-	t_global		test1;
+	t_global		global;
 
-	time_to_die = 1000;
-	time_to_eat = 10000000;
-	test1.tte = time_to_eat;
-	test1.nbr_ps = 4;
-	test1.lock_fork = &lock_fork;
-	pthread_mutex_init(test1.lock_fork, NULL);
-	malloc_philos(&test1);
+	get_input(argc, argv,&global);
+	global.lock_fork = &lock_fork;
+	pthread_mutex_init(global.lock_fork, NULL);
+	malloc_philos(&global);
 }
 
 int	malloc_philos(t_global *global)
@@ -124,7 +119,7 @@ int check_philo_starved(t_global *global)
 	unsigned long time;
 
 	i = 0;
-	time = gettimeofday;
+	// time = gettimeofday;
 	while (i < global->nbr_ps)
 	{
 		if (time - global->ps[i].last_eat > global->tte)
