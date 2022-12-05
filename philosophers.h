@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonathanrainprechter <jonathanrainprech    +#+  +:+       +#+        */
+/*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 10:55:16 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/12/04 14:24:27 by jonathanrai      ###   ########.fr       */
+/*   Updated: 2022/12/05 16:15:30 by jrainpre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,18 +39,24 @@ typedef struct s_global
 	int nbr_ps;
 	unsigned long tte;
 	unsigned long ttd;
+	unsigned long tts;
+	unsigned long start_time;
 	pthread_mutex_t *lock_fork;
+	pthread_mutex_t *singlefork;
 	char *forks;
 	struct s_p *ps;
 	int no_dead;
 	int must_eat;
+	
 } t_global;
 
 
 int	ft_atoi(const char *nptr);
 int get_input(int argc, char **argv, t_global *global);
-
-
+unsigned long get_time();
+void wait(unsigned long time_msec);
+int check_philo_starved(t_global *global);
+void	start_eat(t_p *p);
 
 
 #endif
