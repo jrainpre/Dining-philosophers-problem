@@ -3,14 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jonathanrainprechter <jonathanrainprech    +#+  +:+       +#+        */
+/*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:50:50 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/12/04 14:40:11 by jonathanrai      ###   ########.fr       */
+/*   Updated: 2022/12/06 17:02:11 by jrainpre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 int	ft_atoi(const char *nptr)
 {

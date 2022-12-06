@@ -9,13 +9,17 @@
 
 NAME        := philo
 CC        := cc
-FLAGS    := -g -pthread
+FLAGS    := -Wall -Wextra -Werror -g -pthread
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
 SRCS        :=      getInput.c \
+                          ft_isdigit.c \
+                          in_thread_starve.c \
+                          in_thread_eat.c \
                           main.c \
+                          ft_strncmp.c \
                           ft_atoi.c \
                           
 OBJS        := $(SRCS:.c=.o)
@@ -55,6 +59,15 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+val: all
+	valgrind --leak-check=full \
+		--show-leak-kinds=all \
+		--track-origins=yes \
+		--verbose \
+		--log-file=valgrind-out.txt \
+		./philo 5 800 200 200 5
+		code valgrind-out.txt
+
+.PHONY:		all clean fclean re val
 
 
