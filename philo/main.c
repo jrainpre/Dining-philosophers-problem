@@ -6,7 +6,7 @@
 /*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 17:00:28 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/12/06 17:01:53 by jrainpre         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:08:01 by jrainpre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	main(int argc, char **argv)
 
 	global.no_dead = 1;
 	if (get_input(argc, argv, &global) == 0)
-		return (1);
+		return (0);
 	if (malloc_philos(&global) != 1)
 	{
 		printf("Error System");
-		return (1);
+		return (0);
 	}
 	if (finish_process(&global) != 1)
 	{
 		printf("Error System");
-		return (1);
+		return (0);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jrainpre <jrainpre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 16:58:06 by jrainpre          #+#    #+#             */
-/*   Updated: 2022/12/06 16:59:15 by jrainpre         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:18:39 by jrainpre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	get_input(int argc, char **argv, t_global *global)
 {
-	if (argc < 4 || argc > 6)
+	if (argc < 5 || argc > 6)
+	{
+		printf("Not enogh arguments");
 		return (0);
+	}
 	if (argc >= 5)
 	{
 		if (!check_inputs1_4(argv))
